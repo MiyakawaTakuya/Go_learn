@@ -26,22 +26,116 @@ const ( //1 1 1 A A A
 	E
 	F
 )
-const ( 
-	c0 = iota  //連番を返す
+const (
+	c0 = iota //連番を返す
 	c1
 	c2
 )
 
 // var Big int = 9223372036854775807
 // var Big int = 9223372036854775807+1 //これはエラーになる
- const Big = 9223372036854775807+1 //定数ではエラーにならない
+const Big = 9223372036854775807 + 1 //定数ではエラーにならない
 
 func outer() {
 	var s4 string = "outer"
 	fmt.Println(s4)
 }
 
+func Plus(x int, y int) int {
+	return x + y + y
+}
+
+func Plus_(x, y int) int { //型の指定は片方に省略することもできる
+	return x + y + y
+}
+
+func Div(x, y int) (int, int) { //型の指定は片方に省略することもできる
+	q := x / y
+	r := x % y
+	return q, r
+}
+
+func Double(price int) (result int) {
+	result = price * 2
+	return
+}
+
+func Noreturn() {
+	fmt.Println("No Return")
+	return //返り値はない場合
+}
+
+func ReturnFunc() func() {
+	return func() {
+		fmt.Println("I'm a function")
+	}
+}
+
+func CallFunc(f func()) {
+	f()
+}
+
+func integers() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
+
 func main() {
+	////function
+	fmt.Println(Plus(2, 4))
+	sho, amari := Div(33, 5)
+	fmt.Println(sho, amari)
+	fmt.Println(Div(33, 5))
+	sho_, _ := Div(33, 6) //_にすることで返り値を使いたくないときは破棄できる
+	fmt.Println(sho_)
+	fmt.Println(Double(6))
+	Noreturn()
+	CallFunc(func() {
+		fmt.Println("Function as para")
+	})
+
+	////anonymous function
+	f1 := func(x, y int) int {
+		return x + y
+	}
+	i26 := f1(543, 12)
+	fmt.Println(i26)
+
+	f2 := func(x, y int) int {
+		return x + y
+	}(20, 2) //無名関数の省略した書き方
+	fmt.Println(f2) //22
+
+	////function return function
+	f3 := ReturnFunc() //関数をf3無名関数として代入(？)している
+	f3()               //I'm a function
+
+	////Goの無名関数はクロージャーで、クロージャーとは日本語では関数閉包と呼ばれ、
+	//関数と関数の処理に関する関数外の環境をセットして閉じ込めた物
+	//クロージャーの中で定義された変数は呼び出されるたびに初期化されず、値が生き続ける
+	//TODO クロージャー復習
+
+	////ジェネレーター  何らかのルールに従って連続した値を返し続ける仕組みの事
+	//クロージャーを応用して、ジェネレーターを実装する
+	ints :=integers()
+	fmt.Println(ints())  //1
+	fmt.Println(ints())  //2
+	fmt.Println(ints())  //3
+	fmt.Println(ints())  //4
+	fmt.Println(ints())  //5
+
+    otherints :=integers()   //別のクロージャーの定義
+	fmt.Println(otherints())  //1
+	fmt.Println(otherints())  //2
+	fmt.Println(otherints())  //3
+	fmt.Println(otherints())  //4
+	fmt.Println(otherints())  //5
+
+
 	// fmt.Println("Hello Go!")
 	// fmt.Println(time.Now())
 
@@ -210,8 +304,7 @@ func main() {
 	fmt.Println(URL, SiteName)
 	fmt.Println(A, B, C, D, E, F) //1 1 1 A A A
 
-	fmt.Println(Big-1)
+	fmt.Println(Big - 1)
 
 	fmt.Println(c0, c1, c2)
-
 }
