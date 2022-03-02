@@ -1,4 +1,4 @@
-package main
+package udemy
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	// "strconv"
 )
 
-func main() { //mainが動く
+func Section8() { //mainが動く
 	//// fmt.Println("Hello new file")
 	a := 0
 	if a == 2 {

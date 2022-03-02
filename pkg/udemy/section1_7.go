@@ -1,4 +1,4 @@
-package main
+package udemy
 
 //パッケージの宣言は必ず１つ mainの時はmainプログラムが書かれていることを指す
 //goは静的型付き言語 基本は型を指定して進めるべし
@@ -83,8 +83,7 @@ func integers() func() int {
 	}
 }
 
-
-func main() {
+func Section1_7() {
 	////function
 	fmt.Println(Plus(2, 4))
 	sho, amari := Div(33, 5)
@@ -121,20 +120,19 @@ func main() {
 
 	////ジェネレーター  何らかのルールに従って連続した値を返し続ける仕組みの事
 	//クロージャーを応用して、ジェネレーターを実装する
-	ints :=integers()
-	fmt.Println(ints())  //1
-	fmt.Println(ints())  //2
-	fmt.Println(ints())  //3
-	fmt.Println(ints())  //4
-	fmt.Println(ints())  //5
+	ints := integers()
+	fmt.Println(ints()) //1
+	fmt.Println(ints()) //2
+	fmt.Println(ints()) //3
+	fmt.Println(ints()) //4
+	fmt.Println(ints()) //5
 
-    otherints :=integers()   //別のクロージャーの定義
-	fmt.Println(otherints())  //1
-	fmt.Println(otherints())  //2
-	fmt.Println(otherints())  //3
-	fmt.Println(otherints())  //4
-	fmt.Println(otherints())  //5
-
+	otherints := integers()  //別のクロージャーの定義
+	fmt.Println(otherints()) //1
+	fmt.Println(otherints()) //2
+	fmt.Println(otherints()) //3
+	fmt.Println(otherints()) //4
+	fmt.Println(otherints()) //5
 
 	// fmt.Println("Hello Go!")
 	// fmt.Println(time.Now())

@@ -1,11 +1,11 @@
-package main
+package udemy
 
 import (
 	"fmt"
 	// "time"
 )
 
-func main() {
+func Section9() {
 	////スライス 配列に似ているもの
 	var sl []int //要素数を指定しない点が配列と違う
 	fmt.Println(sl)

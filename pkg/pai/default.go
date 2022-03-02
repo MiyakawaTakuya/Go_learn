@@ -1,4 +1,4 @@
-package main
+package pai
 
 import (
 	"bufio"
@@ -6,21 +6,17 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	// "math"
 	// "time"
 )
 
-var sc = bufio.NewScanner(os.Stdin)
-var n int
-var s string
-
-func main() {
-
-	for i := 0; i < n; i++ {
-	}
+func C() {
 	fmt.Println()
 }
 
-//読み込み関数
+var sc = bufio.NewScanner(os.Stdin)
+
+//読み込み関数 一式
 //文字列取得・1数値
 func GetInt() (IntReturned int) {
 	sc.Scan()
@@ -42,7 +38,7 @@ func GetIntArr() []int {
 }
 
 //スペース区切りのstring配列データの取り方
-func GetIntStr() []string {
+func GetStrArr() []string {
 	sc.Scan()
 	s := sc.Text()               // 1行読み込み
 	arr := strings.Split(s, " ") // 1行をスペースで分割
