@@ -5,7 +5,7 @@ import (
 	// "time"
 )
 
-func Section9() {
+func Section9_slice() {
 	////スライス 配列に似ているもの
 	var sl []int //要素数を指定しない点が配列と違う
 	fmt.Println(sl)
@@ -74,17 +74,17 @@ func Section9() {
 	}
 
 	//スライス 可変長引数
-	fmt.Println(sum(1,3,5))
-	fmt.Println(sum(1,3,5,123,543,656564))
-    sl13 := []int{1,2,4,6,8}
+	fmt.Println(sum(1, 3, 5))
+	fmt.Println(sum(1, 3, 5, 123, 543, 656564))
+	sl13 := []int{1, 2, 4, 6, 8}
 	fmt.Println(sum(sl13...))
 
 }
 
 //引数に渡された複数の整数の合計値を返す関数
-func sum(s ...int) int{
+func sum(s ...int) int {
 	n := 0
-	for _,v := range s{
+	for _, v := range s {
 		n += v
 	}
 	return n

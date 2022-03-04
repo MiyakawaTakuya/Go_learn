@@ -217,13 +217,13 @@ Loop:
 
 }
 
-////mainではない関数達
-func init() {
-	fmt.Println("initは特別でmain関数より先に呼ばれるようになってるんよ、覚えておいて")
-}
-func init() {
-	fmt.Println("initは複数呼ぶこともできるけど、まとめて定義するのが通常だよ")
-}
+////mainではない関数達  同じパッケージ内で他のファイルでも最初に呼び出される
+// func init() {
+// 	fmt.Println("initは特別でmain関数より先に呼ばれるようになってるんよ、覚えておいて")
+// }
+// func init() {
+// 	fmt.Println("initは複数呼ぶこともできるけど、まとめて定義するのが通常だよ")
+// }
 
 func sub() {
 	for {

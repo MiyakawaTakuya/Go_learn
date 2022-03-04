@@ -11,6 +11,8 @@ func main() {
 	// pai.C052()
 	// pai.C053()
 
-	udemy.Section9()
+	// udemy.Section9_slice()
+	// udemy.Section9_map()
+	udemy.Section9_channel()
 
 }
