@@ -1,9 +1,6 @@
 package main
 
-import (
-	// "Go_learn/pkg/pai"
-	"Go_learn/pkg/udemy"
-)
+// "Go_learn/pkg/pai"
 
 // var sc = bufio.NewScanner(os.Stdin)
 
@@ -13,6 +10,7 @@ func main() {
 
 	// udemy.Section9_slice()
 	// udemy.Section9_map()
-	udemy.Section9_channel()
+	// udemy.Section9_channel()
+	// udemy.Section10_pointer()
 
 }
